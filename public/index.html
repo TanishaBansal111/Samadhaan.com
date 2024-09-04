@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Project</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+    integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" href="style/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <script src="script/script.js"></script>
+   
+</head>
+
+
+
+
+<body>
+  <div class="main">
+   <nav>
+    <div>
+      <span><img src="pics/pic1.webp" style="border-radius: 50%; height: 45px; width: 45px;"></span>
+    <span style="font-weight: 900 ; font-size: 20px; color: rgb(255, 202, 210);">Samadhaan.com</span>
+  </div>
+   
+  <div class="row">
+    <div class="d-grid gap-2  me-1 d-md-flex">
+      <input type="button" value="Sign up" class="btn btn-r" data-bs-toggle="modal" data-bs-target="#signupModal">
+      <input type="button" value="Login" class="btn btn-r" data-bs-toggle="modal" data-bs-target="#loginModal">
+    </div>
+
+
+
+    <div class="modal fade" id="signupModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" >
+        <div class="modal-content " style="background-color: rgb(255, 245, 243)">
+          <div class="modal-header" >
+            <h1 class="modal-title fs-5" id="exampleModalLabel" >SignUp</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <form action="/signup" method="post">
+            <div class="modal-body">
+
+              <div class="mb-3">
+                <label for="txtEmail" class="form-label">Email id <span id="errEmail"> * </span></label>
+                <input type="email" class="form-control" id="txtEmail" name="ntxtEmail">
+                <span id="ava"></span>
+              </div>
+              <label for="txtPass" class="form-label">Password <span id="errPass"> * </span></label>
+              <div class="input-group mb-3">
+
+                <input type="password" class="form-control" id="txtPass" name="ntxtPass">
+                <span class="input-group-text"><i class=" fa-solid fa-eye-slash fa-beat"></i> </span>
+
+              </div>
+              <div class="mb-3">
+                <label for="seluser" class="form-label">User Type</label>
+                <select id="seluser" class="form-select" name="nseluser">
+                  <option value="none">Select..</option>
+                  <option value="Service Provider">Service Provider</option>
+                  <option value="Customer">Customer</option>
+                </select>
+              </div>
+              <div>
+                <span id="stat" name="nstat">Status:</span>
+              </div>
+            </div>
+            <div class="modal-footer">
+
+              <input type="button" id="sbtn" value="Sign up" class="btn btn-secondary">
+
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+
+<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content" style="background-color: rgb(255, 245, 243)">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel1">Login Modal</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="mb-3">
+          <label for="ltxtEmail" class="form-label">Email id</label>
+          <input type="email" class="form-control" id="ltxtEmail" name="lntxtEmail">
+        </div>
+        <label for="ltxtPass" class="form-label">Password</label>
+        <div class="input-group mb-3">
+
+          <input type="password" class="form-control" id="ltxtPass" name="lntxtPass">
+          <span class="input-group-text"><i class="fa-solid fa-eye-slash fa-beat"></i></span>
+
+        </div>
+      </div>
+      <div class="modal-footer">
+        <input type="button" id="lbtn" value="Login" class="btn btn-secondary">
+      </div>
+    </div>
+  </div>
+</div>
+  </div>
+</nav>
+<div class="box" >
+  <span style="font-size: 30px; font-weight: 700;">Welcome to Samadhaan.com</span><img src="pics/pic2.avif" style="height: 250px; width: 250px;" class="img-fluid float-end">
+  <div> In today's fast-paced world, convenience is a commodity in high demand. As our lives become increasingly busy, finding reliable and efficient services for our homes can be a daunting task.This is where our innovative online platform steps in, revolutionizing the way people access home services. 
+</div >
+
+</div>
+<!-- <div  class="box2" style="font-size: 25px; font-weight: 400;">Services We are Providing...
+
+</div> -->
+<div class="con">
+<div class="container">
+  <div  class="box2">Services We are Providing...
+
+  </div>
+  <div class="circle-wrapper">
+      <div class="circle"><img src="pics/Car-Service.jpg" class="img-fluid"></div>
+      <div class="name">Car Services</div>
+  </div>
+  <div class="circle-wrapper">
+      <div class="circle"><img src="pics/electrican-service.jpg" class="img-fluid"></div>
+      <div class="name">Electrical Services</div>
+  </div>
+  <div class="circle-wrapper">
+      <div class="circle"><img src="pics/gardening-service.jpg" class="img-fluid"></div>
+      <div class="name">Gardening Services</div>
+  </div>
+  <div class="circle-wrapper">
+      <div class="circle"><img src="pics/Maid-Service.jpg" class="img-fluid"></div>
+      <div class="name">Maids</div>
+  </div>
+  <div class="circle-wrapper">
+      <div class="circle"><img src="pics/painting-service.webp" class="img-fluid"></div>
+      <div class="name">Painting Services</div>
+  </div>
+  <div class="circle-wrapper">
+      <div class="circle"><img src="pics/roofing-service.avif" class="img-fluid"></div>
+      <div class="name">Roofing Services</div>
+  </div>
+</div>
+</div>
+
+<!-- <div class="section bg-light">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <h2 class="section-title">Services</h2>
+        <p class="text-center">
+          Car Services<br>
+          Electrical Services<br>
+          Gardening Services<br>
+          Painting Services
+        </p>
+      </div>
+      <div class="col-md-4">
+        <h2 class="section-title">About Us</h2>
+        <p class="text-center">
+          Samadhaan.com - Your Solution Hub!<br>
+          Connecting you with skilled professionals<br>
+          for seamless projects, ensuring local<br>
+          expertise, a simplified experience, and<br>
+          trusted professionals. Join us where<br>
+          projects find solutions!
+        </p>
+      </div>
+      <div class="col-md-4">
+        <h2 class="section-title">Contact Us</h2>
+        <p class="text-center">
+          Bareta Punjab<br>
+          Email: tanishabareta@gmail.com<br>
+          Phone: +91 7889144596
+        </p>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+<footer class="footer">
+  <div class="cont">
+    <div class="rowww">
+      <div class="footer-col">
+        <h4 >
+         Services
+        </h4>
+          <a href="#">Car Services</a>
+          <a href="#">Electrical Services</a>
+          <a href="#">Gardening Services</a>
+          <a href="#">Painting Services</a>   
+      </div>
+      <div class="footer-col">
+        <h4>
+          About Us
+        </h4>
+          <a href="#">Samadhaan.com - Your Solution Hub!
+          Connecting you with skilled professionals
+          for seamless projects, ensuring local
+          expertise, a simplified experience, and
+          trusted professionals. Join us where
+          projects find solutions!
+          </a>
+      </div>
+      <div class="footer-col">
+        <h4 >
+          Contact Us
+        </h4>
+        <a href="#">Bareta Punjab</a>
+         <a href="#">Email: tanishabareta@gmail.com</a>
+        <a href="#">Phone: +91 7889144596</a>
+      </div>
+      <div class="footer-col">
+        <h4 >
+          Follow Us
+        </h4>
+        <div class="social">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+         <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+      </div>
+    </div>
+      
+     
+    </div>
+  </div>
+</footer>
+
+
+
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
+</body>
+
+
+</html>

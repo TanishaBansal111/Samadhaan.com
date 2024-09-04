@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+    integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.3/angular.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            let user=localStorage.getItem("user");
+            $("#inputEmail").val(user);
+        })
+        </script>
+            <script>
+
+        var module=angular.module("myModule",[]);;
+        var controller=module.controller("myController",function($scope,$http)
+        {
+            $scope.fn=localStorage.getItem("user");
+            $scope.Job_Manager=function()
+            {
+                
+                let url="/fetch-previous?eml="+$scope.fn;
+            
+              $http.get(url).then(success,errors);
+            function success(response)
+            {
+                
+                $scope.jsonAry=response.data;
+            }
+            function errors(response)
+            {
+                alert(response.data);
+            }
+            }
+            $scope.doDelete1=function(selrid)
+            {
+                if(confirm("Do you want to remove this ")==false)
+                {
+                    return;
+                }
+                let url="/delete-work?rid="+selrid;
+                $http.get(url).then(success,errors);
+                function success(response)
+               {
+                alert(response.data);
+                $scope.Job_Manager();
+               }
+               function errors(response)
+               {
+                alert(response.data);
+               }
+            }
+            
+
+
+        });
+
+    </script>
+  </head >
+  <nav class="navbar" style="background-color: salmon">
+    <div class="container-fluid" style="color:rgb(255, 245, 243) " >
+      <a class="navbar-brand" href="#" style="color:rgb(255, 245, 243) ">Samadhaan.com</a>
+    </div>
+ </nav>
+  <body ng-app="myModule" ng-controller="myController" ng-init="Job_Manager();">
+    <center>
+    <div class="col-md-3" style="width: 30%; margin-top: 20px;">
+        <label for="inputEmail" class="form-label">Email</label>
+        <div class="input-group mb-3">
+            <input type="email" class="form-control" id="inputEmail" name="txtEmail" ng-model="fn" disabled>
+        </div>
+    </div>
+</center>
+    <center>
+                          <div class="card" style="width: 98%; margin-top: 20px; line-height: 60px; background-color: salmon ;" >
+                            <table style="width: 100%;" border="0">
+                                <tr style="align-items: center; color: white;">
+                                <td style="width: 20%;text-align: center; font-size: 22px;">rid</td>
+                                <td style="width: 20%;text-align: center;font-size: 22px;">Category</td>
+                                <td style="width: 20%;text-align: center;font-size: 22px;">Upto</td>
+                                <td style="width: 20%;text-align: center;font-size: 22px;">Delete</td>
+                            </tr>
+                       </table>
+                        </div>
+
+                        <div class="card" ng-repeat="obj in jsonAry" style="width:98%;margin-top: 15px; background-color: darkgray;">
+                            <table style="width:100%;"border="0">
+                                <tr style="color: white">
+                                    <td style="width: 20%;text-align: center;">{{obj.rid}}</td>
+                                    <td style="width: 20%;text-align: center;">{{obj.category}}</td>
+                                    <td style="width: 20%;text-align: center;">{{obj.upto}}</td>
+                                    <td style="width: 20%;text-align: center;"><button class="btn" style="background-color: salmon "><a href="#" ng-click="doDelete1(obj.rid)" style="text-decoration: none;color: white;" >Delete</a></button></td>
+                                </tr>
+                            </table>
+                
+                        </div>          
+    </center>                    
+    
+  </body>
+</html>
